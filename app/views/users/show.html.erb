@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <%= render 'books/userinfo', user: @user %>
+      <%= render 'books/newbook', book: @book %>
+    </div>
+    <div class="offset-md-1">
+    </div>
+    <div class="col-md-8">
+
+      <div class="users_books">
+        <h1>Books</h1>
+        <table class="table">
+          <tr>
+            <th>　</th>
+            <th>Title</th>
+            <th>Opinion</th>
+          </tr>
+        </table>
+        <% @books.each do |book| %>
+        <table class="table">
+          <tr>
+            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td><%= link_to book.title, "/books/#{book.id}" %></td>
+            <td><%= book.body%></td>
+          </tr>
+        </table>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+<div class="userinfo">
+  <h4>User info</h4>
+  <%= image_tag user.get_profile_image(100,100) %>
+  <p>name<%= user.name %></p>
+  <p>introduction<%= user.introduction %></p>
+  <%= link_to icon('fas','user-gear'), "/users/#{user.id}/edit" %>
+</div>

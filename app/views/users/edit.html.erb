@@ -1,0 +1,18 @@
+<% if @user.errors.any? %>
+  <p>error try again </p>
+  <ul>
+    <% @user.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+<h1>User info</h1>
+<%= form_with model: @user do |f| %>
+  <p>Name</p>
+  <%= f.text_field :name %>
+  <p>Image</p>
+  <%= f.file_field :image, accept: "image/*" %>
+  <p>Introduction</p>
+  <%= f.text_area :introduction %>
+  <%= f.submit 'Update User' %>
+<% end %>
