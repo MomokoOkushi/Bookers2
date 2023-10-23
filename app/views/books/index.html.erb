@@ -12,9 +12,7 @@
       <%= render 'userinfo', user: @user %>
       <%= render 'newbook', book: @book %>
     </div>
-    <div class="offset-md-1">
-    </div>
-    <div class="col-md-8">
+    <div class="col-md-8 offset-md-1">
       <div class="index">
         <h4>Books</h4>
         <table class="table">
@@ -25,16 +23,18 @@
               <th>Opinion</th>
             </tr>
           </thread>
-      </table>
         <% @books.each do |book| %>
-        <table class="table">
           <tr>
-            <td><%= image_tag book.user.get_profile_image(100,100) %></td>
+            <td>
+              <%= link_to "/users/#{book.user.id}" do %>
+                <%= image_tag book.user.get_profile_image(100,100) %>
+              <% end %>
+            </td>
             <td><%= link_to book.title,"/books/#{book.id}" %></td>
             <td><%= book.body %></td>
           </tr>
-        </table>
         <% end %>
+        </table>
       </div>
     </div>
   </div>

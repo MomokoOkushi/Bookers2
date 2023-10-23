@@ -3,5 +3,7 @@
   <%= image_tag user.get_profile_image(100,100) %>
   <p>name<%= user.name %></p>
   <p>introduction<%= user.introduction %></p>
-  <%= link_to icon('fas','user-gear'), "/users/#{user.id}/edit" %>
+  <%= link_to "/users/#{user.id}/edit" do %>
+    <i class="fa-solid fa-user-gear"></i>
+  <% end %>
 </div>

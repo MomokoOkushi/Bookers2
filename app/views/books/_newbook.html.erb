@@ -1,11 +1,13 @@
 <div class="newbook">
   <h4>New book</h4>
   <%= form_with model:book do |f| %>
-    <h6>title</h6>
+    <h6>Title</h6>
     <%= f.text_field :title %>
     <h6>Opinion</h6>
     <%= f.text_area :body %>
-    <%= f.submit '投稿' %>
+    <div class="btn btn sucsess btn-sm btn-block">
+    <%= f.submit 'Create Book' %>
+    </div>
   <% end %>
 
 </div>

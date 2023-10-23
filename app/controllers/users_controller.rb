@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   before_action :is_matching_login_user, only: [:edit, :update]
 
   def show
@@ -10,6 +11,7 @@ class UsersController < ApplicationController
   def index
     @user = User.all
     @userinfo = current_user
+    @book = Book.new
   end
 
   def edit
