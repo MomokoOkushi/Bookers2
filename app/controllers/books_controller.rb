@@ -26,13 +26,13 @@ before_action :is_matching_login_user, only: [:edit, :update]
     @book = Book.find(params[:id])
     @user = @book.user
     @book_new = Book.new
+    @book_comment = BookComment.new
   end
 
   def edit
     @book = Book.find(params[:id])
     @user = @book.user
     @booknew = @book
-
   end
 
   def update

@@ -20,10 +20,16 @@
           <td id="favorite_btn_<%= @book.id %>">
             <%= render 'favorites/btn', book: @book %>
           </td>
+          <td>
+            コメント<%= @book.book_comments.count %>
+          </td>
           <% if @book.user == current_user %>
             <td><%= link_to "Edit", "/books/#{@book.id}/edit"%></td>
             <td><%= link_to "Destroy", "/books/#{@book.id}", method: :delete %></td>
           <% end %>
       </table>
+      <div>
+        <%= render 'book_comments/comment',book: @book, book_comment: @book_comment %>
+      </div>
   </div>
 </div>
