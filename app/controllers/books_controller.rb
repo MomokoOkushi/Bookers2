@@ -16,9 +16,10 @@ before_action :is_matching_login_user, only: [:edit, :update]
   end
 
   def index
-    @book = Book.new
+    @book_new = Book.new
     @user = current_user
-    @books = Book.all
+
+    @books = Book.most_favorited
 
   end
 
