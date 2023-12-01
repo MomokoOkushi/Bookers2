@@ -18,9 +18,7 @@ before_action :is_matching_login_user, only: [:edit, :update]
   def index
     @book_new = Book.new
     @user = current_user
-
-    @books = Book.most_favorited
-
+    @books = Book.most_favorited #いいね数が多い順に並び替える。book.rbにてメソッド定義。
   end
 
   def show

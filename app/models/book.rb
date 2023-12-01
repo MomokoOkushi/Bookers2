@@ -10,6 +10,7 @@ class Book < ApplicationRecord
   validates :body, presence: true
   validates :body, length: { minimun:1, maximum: 200 }
 
+  #いいね数が高い順に並びかえる
   scope :most_favorited, ->{includes(:favorited_users).sort_by { |x| x.favorited_users.includes(:favorites).size }.reverse}
 
   def favorited_by?(user)
