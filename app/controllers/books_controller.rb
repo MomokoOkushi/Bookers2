@@ -37,7 +37,6 @@ before_action :is_matching_login_user, only: [:edit, :update]
   def update
     book = Book.find(params[:id])
     if book.update(book_params)
-       byebug
        flash[:notice] = "updated successfully"
        redirect_to book_path(book.id)
     else
